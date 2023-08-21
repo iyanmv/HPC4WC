@@ -55,10 +55,11 @@ def initialize_fields(NX, NY, NZ, mode="random", num_halo=0, order="C", dtype=np
 
 def plot_field(field, k=0, ifirst=False):
     field = np.array(field)
-    if ifirst == False:
+    plt.figure(figsize=(7, 5), dpi=100)
+    if ifirst == False: # Draw [k,j,i]
         plt.imshow(field[k, :, :], origin='lower', vmin=-1, vmax=1);
         plt.colorbar();
-    else:
+    else: # Draw [i,j,k]
         plt.imshow(field[:, :, k], origin='lower', vmin=-1, vmax=1);
         plt.colorbar();        
 
